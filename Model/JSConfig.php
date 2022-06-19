@@ -35,6 +35,7 @@ class JSConfig
     {
         $storeId = $this->storeManager->getStore()->getId();
         return [
+            'tooltipTpl' => 'Gw_CheckoutCountryNotice/tooltip',
             'countryGroups' => $this->helper->getCountryGroups($storeId),
             'storeId' => $storeId,
             'defaultNotice' => $this->helper->getDefaultNotice($storeId),
@@ -42,3 +43,4 @@ class JSConfig
         ];
     }
 }
+

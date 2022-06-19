@@ -1,33 +1,43 @@
 define([
     'Magento_Ui/js/form/element/select',
+    'ko'
 ], function (
     Select,
+    ko
 ) {
     'use strict';
 
     return Select.extend({
         defaults: {
-            defaultNotice: '',
+            defaultTooltip: '',
             countryGroups: [],
-            storeId: 0
+            storeId: 0,
+            tooltip: ko.observable(false)
+        },
+
+        initObservable: function () {
+            this._super();
+            this.observe('tooltip');
+            return this;
         },
 
         initialize: function (options) {
             this._super(options);
+            this.initObservable();
             this.onUpdate(options.value);
             return this;
         },
 
         onUpdate: function (value) {
-            let noticeText = this.defaultNotice;
+            let tooltipText = this.defaultTooltip;
             let countryGroups = this.countryGroups;
             this._super();
             Object.keys(this.countryGroups).forEach( function(groupId) {
                 if (countryGroups[groupId]['countrylist'].includes(value)) {
-                    noticeText = countryGroups[groupId]['notice']
+                    tooltipText = countryGroups[groupId]['notice']
                 }
             }, this.countryGroups);
-            this.notice(noticeText);
+            this.tooltip(tooltipText);
         },
     });
 });

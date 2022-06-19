@@ -35,9 +35,9 @@ class Data
 
     /**
      * @param int $storeId
-     * @return void
+     * @return array
      */
-    public function getCountryGroups($storeId)
+    public function getCountryGroups(int $storeId): array
     {
         try {
             return $this->serializer->unserialize(
@@ -54,9 +54,9 @@ class Data
 
     /**
      * @param int $storeId
-     * @return void
+     * @return string
      */
-    public function getDefaultNotice($storeId)
+    public function getDefaultNotice(int $storeId): string
     {
         return $this->scopeConfig->getValue(
             self::XML_PATH_DEFAULT_NOTICE,

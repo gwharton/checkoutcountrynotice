@@ -54,9 +54,9 @@ class Data
 
     /**
      * @param int $storeId
-     * @return string
+     * @return string|null
      */
-    public function getDefaultNotice(int $storeId): string
+    public function getDefaultNotice(int $storeId): ?string
     {
         return $this->scopeConfig->getValue(
             self::XML_PATH_DEFAULT_NOTICE,

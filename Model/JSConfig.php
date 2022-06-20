@@ -38,7 +38,7 @@ class JSConfig
             'tooltipTpl' => 'Gw_CheckoutCountryNotice/tooltip',
             'countryGroups' => $this->helper->getCountryGroups($storeId),
             'storeId' => $storeId,
-            'defaultNotice' => $this->helper->getDefaultNotice($storeId),
+            'defaultTooltip' => $this->helper->getDefaultNotice($storeId),
             'additionalClasses' => 'gw_checkoutcountrynotice_country_id',
         ];
     }
